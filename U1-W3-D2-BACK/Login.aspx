@@ -17,11 +17,15 @@
             <div class="container">
                 <div class="text-center my-5">
                     Username: <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-                    
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ErrorMessage="Username obbligatorio" ControlToValidate="txtUsername" >
+                    </asp:RequiredFieldValidator>
                     <br />
                     <br />
                     Password: <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox> 
-                    
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ErrorMessage="Password obbligatorio" ControlToValidate="txtPassword">
+                    </asp:RequiredFieldValidator>
                     <br />
                     <br />
                     <asp:Button ID="AccediButton" runat="server" Text="Accedi" OnClick="AccediButton_Click" />

@@ -11,9 +11,9 @@ namespace U1_W3_D2_BACK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["UsernameCookie"] != null)
+            if (Request.Cookies["LoginCookie"] != null)
             {
-                BenvenutoUtente.Text = Request.Cookies["UsernameCookie"]["nomeUtente"];
+                BenvenutoUtente.Text = Request.Cookies["LoginCookie"]["nomeUtente"];
             } else
             {
                 Response.Redirect("Login.aspx");
@@ -22,10 +22,13 @@ namespace U1_W3_D2_BACK
 
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
-            if (Request.Cookies["UsernameCookie"] != null)
+            if (Request.Cookies["LoginCookie"] != null)
             {
-                
+                HttpCookie cookieUtente = new HttpCookie("LoginCookie");
+                cookieUtente.Expires= DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookieUtente);
             }
+            Response.Redirect("Login.aspx");
         }
     }
 }

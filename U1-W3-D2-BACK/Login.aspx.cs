@@ -16,7 +16,7 @@ namespace U1_W3_D2_BACK
 
         protected void AccediButton_Click(object sender, EventArgs e)
         {
-            HttpCookie cookieUtente = new HttpCookie("UsernameCookie");
+            HttpCookie cookieUtente = new HttpCookie("LoginCookie");
             cookieUtente.Values["nomeUtente"] = txtUsername.Text;
             Response.Cookies.Add(cookieUtente);
             Response.Redirect("Utente.aspx");
